@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "1f3d163b-feab-46d5-8eae-7f6a751d9271",
+		"name": "Ice Cream Shop",
+		"description": "This fictional ice cream store needs an API to allow people to order their favorite desserts. One endpoint will let them retrieve the menu of flavors and customizations, and the other endpoint will let them submit an order.\n\nContact Support:\n Name: Fake Store Owner\n Email: nobody@example.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "23840032-1f3d163b-feab-46d5-8eae-7f6a751d9271"
+	},
+	"item": [
+		{
+			"name": "Fetch the current inventory for making an order",
+			"id": "d4917492-be50-4323-ad48-0b40c0e77be6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/menu",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"menu"
+					]
+				},
+				"description": "Retrieve the current menu from the inventory database"
+			},
+			"response": [
+				{
+					"id": "57966ab7-22ca-4d4b-a33e-ac7d8a6f6a99",
+					"name": "Menu is found, and retrieved",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/menu",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"menu"
+							]
+						},
+						"description": "Retrieve the current menu from the inventory database"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"flavors\": [\n    {\n      \"flavorName\": \"Strawberry\",\n      \"count\": 50\n    },\n    {\n      \"flavorName\": \"Chocolate\",\n      \"count\": 75\n    }\n  ],\n  \"toppings\": [\n    {\n      \"toppingName\": \"Hot Fudge\",\n      \"count\": 50\n    },\n    {\n      \"toppingName\": \"Sprinkles\",\n      \"count\": 2000\n    },\n    {\n      \"toppingName\": \"Whipped Cream\",\n      \"count\": 50\n    }\n  ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create New Order",
+			"id": "26e85d25-64ce-4229-ab45-32e056a22190",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"flavors\": [\n    {\n      \"flavorName\": \"Strawberry\",\n      \"count\": 1\n    },\n    {\n      \"flavorName\": \"Chocolate\",\n      \"count\": 1\n    }\n  ],\n  \"toppings\": [\n    {\n      \"toppingName\": \"Hot Fudge\",\n      \"count\": 1\n    },\n    {\n      \"toppingName\": \"Sprinkles\",\n      \"count\": 2\n    },\n    {\n      \"toppingName\": \"Whipped Cream\",\n      \"count\": 1\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/order",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"order"
+					]
+				},
+				"description": "User will send a structure of data to place an online order"
+			},
+			"response": [
+				{
+					"id": "f94a9d71-caf1-4223-ac0e-06bb3f0be1e1",
+					"name": "Order created, thank you!",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"flavors\": [\n    {\n      \"flavorName\": \"Strawberry\",\n      \"count\": 1\n    },\n    {\n      \"flavorName\": \"Chocolate\",\n      \"count\": 1\n    }\n  ],\n  \"toppings\": [\n    {\n      \"toppingName\": \"Hot Fudge\",\n      \"count\": 1\n    },\n    {\n      \"toppingName\": \"Sprinkles\",\n      \"count\": 2\n    },\n    {\n      \"toppingName\": \"Whipped Cream\",\n      \"count\": 1\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "User will send a structure of data to place an online order"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"flavors\": [\n    {\n      \"flavorName\": \"Strawberry\",\n      \"count\": 1\n    },\n    {\n      \"flavorName\": \"Chocolate\",\n      \"count\": 1\n    }\n  ],\n  \"toppings\": [\n    {\n      \"toppingName\": \"Hot Fudge\",\n      \"count\": 1\n    },\n    {\n      \"toppingName\": \"Sprinkles\",\n      \"count\": 2\n    },\n    {\n      \"toppingName\": \"Whipped Cream\",\n      \"count\": 1\n    }\n  ]\n}"
+				},
+				{
+					"id": "5eedffcd-2c85-4546-b259-ada3d278e592",
+					"name": "Missing Required Information, or flavor/topping requested was not available",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"flavors\": [\n    {\n      \"flavorName\": \"Strawberry\",\n      \"count\": 1\n    },\n    {\n      \"flavorName\": \"Chocolate\",\n      \"count\": 1\n    }\n  ],\n  \"toppings\": [\n    {\n      \"toppingName\": \"Hot Fudge\",\n      \"count\": 1\n    },\n    {\n      \"toppingName\": \"Sprinkles\",\n      \"count\": 2\n    },\n    {\n      \"toppingName\": \"Whipped Cream\",\n      \"count\": 1\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "User will send a structure of data to place an online order"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"message\": \"Could not create your order\",\n  \"details\": \"Sorry, one or more items in your order were not available, please check the menu and try again\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "2963c7be-c598-47e6-aa5d-fcde0c8ce907",
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
